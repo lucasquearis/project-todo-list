@@ -17,3 +17,8 @@ criarParagrafo.innerHTML = 'Clique duas vezes em um item para marcá-lo como com
 const criarInput = document.createElement('input');
 pegarBody.appendChild(criarInput);
 criarInput.id = 'texto-tarefa';
+
+// Requisito 4
+const criarOl = document.createElement('ol');
+pegarBody.appendChild(criarOl);
+criarOl.id = 'lista-tarefas';
