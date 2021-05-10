@@ -28,11 +28,17 @@ criarBotao.innerHTML = 'Criar Nova Tarefa'
 const criarOl = document.createElement('ol');
 pegarBody.appendChild(criarOl);
 criarOl.id = 'lista-tarefas';
+const criarLi = document.createElement('li');
 
-// Requisito 6
+// Requisito 6 e 7
 criarBotao.addEventListener('click', function(){
-  const criarLi = document.createElement('li');
-  criarOl.appendChild(criarLi);
-  criarLi.innerHTML = criarInput.value;
+  const novaLista = document.createElement('li');
+  criarOl.appendChild(novaLista);
+  novaLista.innerHTML = criarInput.value;
   criarInput.value = '';
+  novaLista.addEventListener('click', function(){
+    novaLista.style.backgroundColor = 'rgb(128, 128, 128)'
+  })
 });
+
+
