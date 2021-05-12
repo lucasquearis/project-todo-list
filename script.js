@@ -30,15 +30,22 @@ pegarBody.appendChild(criarOl);
 criarOl.id = 'lista-tarefas';
 const criarLi = document.createElement('li');
 
-// Requisito 6 e 7
+// Requisito 6
 criarBotao.addEventListener('click', function(){
   const novaLista = document.createElement('li');
   criarOl.appendChild(novaLista);
   novaLista.innerHTML = criarInput.value;
   criarInput.value = '';
-  novaLista.addEventListener('click', function(){
-    novaLista.style.backgroundColor = 'rgb(128, 128, 128)'
-  })
+  selectLi();
 });
 
+// Requisito 7
 
+function selectLi(){
+  const selectLi = document.querySelectorAll('li');
+  selectLi.addEventListener('click', function(){
+    for(let index = 0; index < selectLi.length; index += 1){
+      selectLi[index].className = 'selected'
+    }
+  })
+}
