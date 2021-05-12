@@ -36,16 +36,4 @@ criarBotao.addEventListener('click', function(){
   criarOl.appendChild(novaLista);
   novaLista.innerHTML = criarInput.value;
   criarInput.value = '';
-  selectLi();
 });
-
-// Requisito 7
-
-function selectLi(){
-  const selectLi = document.querySelectorAll('li');
-  selectLi.addEventListener('click', function(){
-    for(let index = 0; index < selectLi.length; index += 1){
-      selectLi[index].className = 'selected'
-    }
-  })
-}
