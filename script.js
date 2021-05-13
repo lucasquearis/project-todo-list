@@ -41,10 +41,13 @@ criarBotao.addEventListener('click', function(){
     for(let index = 0; index < getList.length; index += 1){
       getList[index].classList.remove('selected')
     }
-    novaLista.className = 'selected';
+    novaLista.classList.add('selected');
   })
-    novaLista.addEventListener('dblclick', function(){
-      novaLista.className = 'completed'
-      
+    novaLista.addEventListener('dblclick', function(event){
+      if(event.target.classList.contains('completed')){
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
     })
 });
