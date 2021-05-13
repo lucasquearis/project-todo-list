@@ -43,6 +43,8 @@ criarBotao.addEventListener('click', function(){
     }
     novaLista.className = 'selected';
   })
+    novaLista.addEventListener('dblclick', function(){
+      novaLista.className = 'completed'
+      
+    })
 });
-
-// Requisito 7
