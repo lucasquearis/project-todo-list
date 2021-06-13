@@ -18,6 +18,7 @@ const createParagraf = () => {
   newParagraf.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
   selectBody.appendChild(newParagraf);
 };
+
 window.onload = () => {
   newHeader();
   populateHeader();
