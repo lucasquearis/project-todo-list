@@ -19,10 +19,24 @@ const createParagraf = () => {
   selectBody.appendChild(newParagraf);
 };
 
+const newInput = () => {
+  const createInput = document.createElement('input');
+  createInput.id = 'texto-tarefa';
+  selectBody.appendChild(createInput);
+};
+
+const newOrdenedList = () => {
+  const newOl = document.createElement('ol');
+  newOl.id = 'lista-tarefas';
+  selectBody.appendChild(newOl);
+};
+
 window.onload = () => {
   newHeader();
   populateHeader();
   createParagraf();
+  newInput();
+  newOrdenedList();
 };
 // // Requisito 1
 // const criarHeader = document.createElement('header');
