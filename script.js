@@ -110,10 +110,23 @@ const buttonCleanCompleted = () => {
   newButton.id = 'remover-finalizados';
   newButton.innerText = 'Apaga Itens Finalizados';
   const selectOl = document.querySelector('ol');
+  selectOl.innerHTML = localStorage.getItem('lista');
   selectOl.insertAdjacentElement('afterend', newButton);
   newButton.addEventListener('click', () => {
     const selectLi = document.querySelectorAll('.completed');
     selectLi.forEach((li) => li.remove());
+  });
+};
+
+const buttonSaveList = () => {
+  const newButton = document.createElement('button');
+  newButton.innerText = 'Salvar minha Lista';
+  newButton.id = 'salvar-tarefas';
+  const selectSubmit = document.getElementById('submit');
+  selectSubmit.insertAdjacentElement('afterend', newButton);
+  newButton.addEventListener('click', () => {
+    const ol = document.querySelector('ol').innerHTML;
+    localStorage.setItem('lista', ol);
   });
 };
 
@@ -125,6 +138,9 @@ window.onload = () => {
   buttonSubmit();
   buttonCleanList();
   buttonCleanCompleted();
+  buttonSaveList();
+  selectItem();
+  completedItem();
 };
 // // Requisito 1
 // const criarHeader = document.createElement('header');
