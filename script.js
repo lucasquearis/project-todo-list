@@ -3,9 +3,6 @@ const selectBody = document.querySelector('body');
 const newHeader = () => {
   const createHeader = document.createElement('header');
   selectBody.appendChild(createHeader);
-};
-
-const populateHeader = () => {
   const selectHeader = document.querySelector('header');
   const createH1 = document.createElement('h1');
   createH1.innerText = 'Minha Lista de Tarefas';
@@ -20,9 +17,27 @@ const createParagraf = () => {
 };
 
 const newInput = () => {
+  const selectDiv = document.getElementById('submit');
   const createInput = document.createElement('input');
   createInput.id = 'texto-tarefa';
-  selectBody.appendChild(createInput);
+  selectDiv.appendChild(createInput);
+};
+
+const buttonNewList = () => {
+  const selectDiv = document.getElementById('submit');
+  const newButton = document.createElement('button');
+  newButton.id = 'criar-tarefa';
+  newButton.innerText = 'Nova tarefa';
+  selectDiv.appendChild(newButton);
+};
+
+const newDivForm = () => {
+  const newDiv = document.createElement('div');
+  newDiv.id = 'submit';
+  const selectParagraf = document.getElementById('funcionamento');
+  selectParagraf.insertAdjacentElement('afterend', newDiv);
+  newInput();
+  buttonNewList();
 };
 
 const newOrdenedList = () => {
@@ -31,12 +46,66 @@ const newOrdenedList = () => {
   selectBody.appendChild(newOl);
 };
 
+const removeClassSelected = () => {
+  const selectLi = document.querySelectorAll('li');
+  selectLi.forEach((li) => li.classList.remove('selected'));
+};
+
+const removeClassCompleted = () => {
+  const selectCompleted = document.querySelectorAll('.completed');
+  selectCompleted.forEach((item) => item.addEventListener('dblclick', (event) => {
+    event.target.classList.remove('completed');
+  }));
+};
+
+const completedItem = () => {
+  const selectLi = document.querySelectorAll('li');
+  console.log(selectLi);
+  selectLi.forEach((item) => item.addEventListener('dblclick', (event) => {
+    const clique = event;
+    clique.target.className = 'completed';
+    removeClassCompleted();
+  }));
+};
+
+const selectItem = () => {
+  const selectLi = document.querySelectorAll('li');
+  selectLi.forEach((item) => item.addEventListener('click', (event) => {
+    const clique = event;
+    removeClassSelected();
+    if (clique.target.className === 'selected') {
+      clique.target = '';
+    } else {
+      clique.target.className = 'selected';
+    }
+  }));
+};
+
+const buttonSubmit = () => {
+  const selectButton = document.getElementById('criar-tarefa');
+  const selectOl = document.getElementById('lista-tarefas');
+  const selectTexto = document.getElementById('texto-tarefa');
+  selectButton.addEventListener('click', () => {
+    const li = document.createElement('li');
+    li.innerText = selectTexto.value;
+    selectOl.appendChild(li);
+    selectTexto.value = '';
+    selectItem();
+    completedItem();
+  });
+};
+
+// const buttonCleanList = () => {
+//   const newButton = document.createElement('button');
+//   newButton
+// };
+
 window.onload = () => {
   newHeader();
-  populateHeader();
   createParagraf();
-  newInput();
+  newDivForm();
   newOrdenedList();
+  buttonSubmit();
 };
 // // Requisito 1
 // const criarHeader = document.createElement('header');
