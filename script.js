@@ -60,7 +60,6 @@ const removeClassCompleted = () => {
 
 const completedItem = () => {
   const selectLi = document.querySelectorAll('li');
-  console.log(selectLi);
   selectLi.forEach((item) => item.addEventListener('dblclick', (event) => {
     const clique = event;
     clique.target.className = 'completed';
@@ -95,10 +94,28 @@ const buttonSubmit = () => {
   });
 };
 
-// const buttonCleanList = () => {
-//   const newButton = document.createElement('button');
-//   newButton
-// };
+const buttonCleanList = () => {
+  const newButton = document.createElement('button');
+  newButton.id = 'apaga-tudo';
+  newButton.innerText = 'Apagar Toda Lista';
+  const selectOl = document.querySelector('ol');
+  selectOl.insertAdjacentElement('afterend', newButton);
+  newButton.addEventListener('click', () => {
+    const selectLi = document.querySelectorAll('li');
+    selectLi.forEach((li) => li.remove());
+  });
+};
+const buttonCleanCompleted = () => {
+  const newButton = document.createElement('button');
+  newButton.id = 'remover-finalizados';
+  newButton.innerText = 'Apaga Itens Finalizados';
+  const selectOl = document.querySelector('ol');
+  selectOl.insertAdjacentElement('afterend', newButton);
+  newButton.addEventListener('click', () => {
+    const selectLi = document.querySelectorAll('.completed');
+    selectLi.forEach((li) => li.remove());
+  });
+};
 
 window.onload = () => {
   newHeader();
@@ -106,6 +123,8 @@ window.onload = () => {
   newDivForm();
   newOrdenedList();
   buttonSubmit();
+  buttonCleanList();
+  buttonCleanCompleted();
 };
 // // Requisito 1
 // const criarHeader = document.createElement('header');
