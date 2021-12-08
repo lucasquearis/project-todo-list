@@ -1,7 +1,7 @@
 # Primeiro projeto em JavaScript utilizando DOM e eventos
 
 Esse foi meu primeiro projeto em JavaScript utilizando DOM eventos e seletores aqui na [Trybe](https://www.betrybe.com/):rocket:\
-[Resultado](https://lucasquearis.github.io/pixelarts/)
+[Resultado](https://github.com/lucasquearis/project-todo-list/blob/master/script.js)
 
 ## Conteúdos práticados
 
@@ -11,4 +11,4 @@ Esse foi meu primeiro projeto em JavaScript utilizando DOM eventos e seletores a
 - Escutador de eventos DOM
 - LocalStorage
 
-[Readme Original requisitos do projeto](https://github.com/lucasquearis/project-todo-list/blob/master/script.js)
+[Readme Original requisitos do projeto](https://github.com/lucasquearis/project-todo-list/blob/master/readmeOriginalProject.md)
